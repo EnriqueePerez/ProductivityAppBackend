@@ -1,0 +1,21 @@
+{
+  "title": "createTaskSchema",
+  "type": "object",
+  "properties": {
+    "title": { "description": "Title of the task", "type": "string" },
+    "details": { "description": "Details of the task", "type": "string" },
+    "dueDate": {
+      "description": "Deadline of the task (Date in string)",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Tag(s) of the task",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "aditionalProperties": false,
+  "required": ["title", "details", "dueDate", "tags"]
+}
