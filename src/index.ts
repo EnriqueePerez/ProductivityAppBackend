@@ -1,8 +1,6 @@
 import fastify from 'fastify';
 import dbConnector from './db/connection';
 import tasksRoutes from './routes/tasks';
-import createTaskSchema from './schemas/createTaskSchema.json';
-import { CreateTaskSchema } from './types/createTaskSchema';
 
 const server = fastify({ logger: { prettyPrint: true } });
 
@@ -13,6 +11,16 @@ server.register(dbConnector);
 tasksRoutes.forEach((route) => {
   server.route(route);
 });
+
+server.listen(3000, (err, address) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log(`Server listening at ${address}`);
+});
+
+export default server;
 
 // const opts: RouteShorthandOptions = {
 //   schema: { body: createTaskSchema },
@@ -41,13 +49,3 @@ tasksRoutes.forEach((route) => {
 //     }
 //   }
 // );
-
-server.listen(3000, (err, address) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log(`Server listening at ${address}`);
-});
-
-export default server;

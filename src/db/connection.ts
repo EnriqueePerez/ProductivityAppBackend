@@ -11,7 +11,7 @@ async function dbConnector(
       // force to close the mongodb connection when app stopped
       forceClose: true,
       url:
-        'mongodb+srv://enrique:IBbLKXNnbfPxAHAR@cluster0.dtp5z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&connectTimeoutMS=6000',
+        'mongodb+srv://enrique:IBbLKXNnbfPxAHAR@cluster0.dtp5z.mongodb.net/tasks?retryWrites=true&w=majority&connectTimeoutMS=6000',
     })
     .after((error) => {
       if (error) {

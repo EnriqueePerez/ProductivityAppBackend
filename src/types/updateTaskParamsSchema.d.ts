@@ -5,22 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface CreateTaskSchema {
+export interface UpdateTaskParamsSchema {
   /**
-   * Title of the task
+   * Id of the task
    */
-  title: string;
-  /**
-   * Details of the task
-   */
-  details: string;
-  /**
-   * Deadline of the task (Date in string)
-   */
-  dueDate: string;
-  /**
-   * Tag(s) of the task
-   */
-  tags: string[];
+  taskId: string;
   [k: string]: unknown;
 }

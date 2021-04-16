@@ -1,5 +1,5 @@
 {
-  "title": "createTaskSchema",
+  "title": "createTaskBodySchema",
   "type": "object",
   "properties": {
     "title": { "description": "Title of the task", "type": "string" },
