@@ -12,9 +12,18 @@ export const createTask = async (
 ) => {
   try {
     const db = server.mongo.db;
-    const createdTask = await db
-      .collection('tasksUser1')
-      .insertOne(request.body);
+    const { title, details, dueDate, tags, estimatedTime } = request.body;
+    const data = {
+      title,
+      details,
+      dueDate,
+      tags,
+      status: 'To do',
+      estimatedTime,
+      timeTaken: null,
+      finishedDate: null,
+    };
+    const createdTask = await db.collection('tasksUser1').insertOne(data);
     return { id: createdTask.insertedId };
   } catch (error) {
     server.log.error('error inserting data');

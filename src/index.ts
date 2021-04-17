@@ -1,21 +1,12 @@
 import fastify from 'fastify';
-import fastifyEnv from 'fastify-env';
 import dbConnector from './db/connection';
 import tasksRoutes from './routes/tasks';
-import DotenvSchema from './schemas/dotenvSchema.json';
 import dotenv from 'dotenv';
 
-dotenv.config();
-const server = fastify({ logger: { prettyPrint: true } });
-
 //enabling .env variables
-// server.register(fastifyEnv, {
-//   schema: DotenvSchema,
-//   dotenv: {
-//     path: `${__dirname}/.env`,
-//     debug: true,
-//   },
-// });
+dotenv.config();
+
+const server = fastify({ logger: { prettyPrint: true } });
 
 //connecting to db
 server.register(dbConnector);

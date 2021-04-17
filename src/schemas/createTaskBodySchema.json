@@ -14,8 +14,12 @@
       "items": {
         "type": "string"
       }
+    },
+    "estimatedTime": {
+      "description": "Estimated Time to finish the task",
+      "type": "number"
     }
   },
   "aditionalProperties": false,
-  "required": ["title", "details", "dueDate", "tags"]
+  "required": ["title", "details", "dueDate", "tags", "estimatedTime"]
 }

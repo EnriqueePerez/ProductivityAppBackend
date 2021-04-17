@@ -31,9 +31,13 @@ export interface UpdateTaskBodySchema {
    */
   status: "To do" | "Doing" | "Done";
   /**
+   * Estimated Time to finish the task
+   */
+  estimatedTime: number;
+  /**
    * How much time it took to finish the task (seconds in string)
    */
-  timeTaken: string | null;
+  timeTaken: number | null;
   /**
    * The date when the task was finished (Date in string)
    */

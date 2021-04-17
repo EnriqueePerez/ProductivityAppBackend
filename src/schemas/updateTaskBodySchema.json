@@ -21,9 +21,13 @@
       "type": "string",
       "enum": ["To do", "Doing", "Done"]
     },
+    "estimatedTime": {
+      "description": "Estimated Time to finish the task",
+      "type": "number"
+    },
     "timeTaken": {
       "description": "How much time it took to finish the task (seconds in string)",
-      "type": ["string", "null"]
+      "type": ["number", "null"]
     },
     "finishedDate": {
       "description": "The date when the task was finished (Date in string)",
@@ -38,6 +42,7 @@
     "dueDate",
     "tags",
     "status",
+    "estimatedTime",
     "timeTaken",
     "finishedDate"
   ]
