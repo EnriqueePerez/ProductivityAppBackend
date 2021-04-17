@@ -22,7 +22,7 @@ tasksRoutes.forEach((route) => {
   server.route(route);
 });
 
-server.listen(process.env.PORT as string, (err, address) => {
+server.listen(process.env.PORT || 3000, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
