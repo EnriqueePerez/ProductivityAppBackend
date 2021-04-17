@@ -21,7 +21,7 @@ export interface CreateTaskBodySchema {
   /**
    * Tag(s) of the task
    */
-  tags: string[];
+  tags: string[][];
   /**
    * Estimated Time to finish the task
    */

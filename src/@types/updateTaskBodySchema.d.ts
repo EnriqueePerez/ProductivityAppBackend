@@ -9,7 +9,7 @@ export interface UpdateTaskBodySchema {
   /**
    * Id of the task
    */
-  id: string;
+  _id?: string;
   /**
    * Title of the task
    */
