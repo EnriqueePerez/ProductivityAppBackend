@@ -1,4 +1,5 @@
 import fastify from 'fastify';
+import fastifyCors from 'fastify-cors';
 import dbConnector from './db/connection';
 import tasksRoutes from './routes/tasks';
 import dotenv from 'dotenv';
@@ -7,6 +8,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const server = fastify({ logger: { prettyPrint: true } });
+
+//enabling CORS
+server.register(fastifyCors, {
+  origin: '*',
+});
 
 //connecting to db
 server.register(dbConnector);
