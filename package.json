@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --config nodemon.json",
     "build": "tsc -p tsconfig.json",
-    "start": "NODE_ENV=production tsc && node dist/index.js",
+    "start": "NODE_ENV=production node dist/index.js",
     "compile-schemas": "json2ts -i src/schemas -o src/@types"
   },
   "keywords": [],
