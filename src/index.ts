@@ -1,8 +1,21 @@
 import fastify from 'fastify';
+import fastifyEnv from 'fastify-env';
 import dbConnector from './db/connection';
 import tasksRoutes from './routes/tasks';
+import DotenvSchema from './schemas/dotenvSchema.json';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const server = fastify({ logger: { prettyPrint: true } });
+
+//enabling .env variables
+// server.register(fastifyEnv, {
+//   schema: DotenvSchema,
+//   dotenv: {
+//     path: `${__dirname}/.env`,
+//     debug: true,
+//   },
+// });
 
 //connecting to db
 server.register(dbConnector);
@@ -12,7 +25,7 @@ tasksRoutes.forEach((route) => {
   server.route(route);
 });
 
-server.listen(3000, (err, address) => {
+server.listen(process.env.PORT as string, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);

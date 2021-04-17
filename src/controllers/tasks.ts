@@ -1,10 +1,10 @@
 import server from '../index';
 import { FastifyReply, FastifyRequest } from 'fastify';
 import { ObjectId } from 'bson';
-import { CreateTaskBodySchema } from '../types/createTaskBodySchema';
-import { UpdateTaskBodySchema } from '../types/updateTaskBodySchema';
-import { UpdateTaskParamsSchema } from '../types/updateTaskParamsSchema';
-import { DeleteTaskParamsSchema } from '../types/deleteTaskParamsSchema';
+import { CreateTaskBodySchema } from '../@types/createTaskBodySchema';
+import { UpdateTaskBodySchema } from '../@types/updateTaskBodySchema';
+import { UpdateTaskParamsSchema } from '../@types/updateTaskParamsSchema';
+import { DeleteTaskParamsSchema } from '../@types/deleteTaskParamsSchema';
 
 export const createTask = async (
   request: FastifyRequest<{ Body: CreateTaskBodySchema }>,

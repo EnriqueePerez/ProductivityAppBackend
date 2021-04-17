@@ -10,8 +10,7 @@ async function dbConnector(
     .register(fastifyMongodb, {
       // force to close the mongodb connection when app stopped
       forceClose: true,
-      url:
-        'mongodb+srv://enrique:IBbLKXNnbfPxAHAR@cluster0.dtp5z.mongodb.net/tasks?retryWrites=true&w=majority&connectTimeoutMS=6000',
+      url: process.env.MONGO_URL,
     })
     .after((error) => {
       if (error) {
