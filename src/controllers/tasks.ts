@@ -5,13 +5,14 @@ import { CreateTaskBodySchema } from '../@types/createTaskBodySchema';
 import { UpdateTaskBodySchema } from '../@types/updateTaskBodySchema';
 import { UpdateTaskParamsSchema } from '../@types/updateTaskParamsSchema';
 import { DeleteTaskParamsSchema } from '../@types/deleteTaskParamsSchema';
+import { Db } from 'mongodb';
 
 export const createTask = async (
   request: FastifyRequest<{ Body: CreateTaskBodySchema }>,
   reply: FastifyReply
 ) => {
   try {
-    const db = server.mongo.db;
+    const db = server.mongo.db as Db;
     const { title, details, dueDate, tags, estimatedTime } = request.body;
     const data = {
       title,
@@ -36,7 +37,7 @@ export const readTasks = async (
   reply: FastifyReply
 ) => {
   try {
-    const db = server.mongo.db;
+    const db = server.mongo.db as Db;
     const readTasks = await db.collection('tasksUser1').find().toArray();
     return readTasks;
   } catch (error) {
@@ -72,7 +73,7 @@ export const updateTask = async (
       timeTaken,
       finishedDate,
     };
-    const db = server.mongo.db;
+    const db = server.mongo.db as Db;
     const updatedTask = await db
       .collection('tasksUser1')
       .updateOne({ _id: new ObjectId(taskId) }, { $set: data });
@@ -91,7 +92,7 @@ export const deleteTask = async (
 ) => {
   try {
     const { taskId } = request.params;
-    const db = server.mongo.db;
+    const db = server.mongo.db as Db;
     const deletedTask = await db
       .collection('tasksUser1')
       .deleteOne({ _id: new ObjectId(taskId) });
