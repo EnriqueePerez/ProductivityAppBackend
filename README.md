@@ -1,5 +1,7 @@
 # Backend/API endpoints
 
+Backend made with Fastify and Typescript. It was made with the arquitecture to able more routes and more endpoints if necessary
+
 ### Create a task
 
 **method**: POST
