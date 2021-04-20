@@ -13,7 +13,10 @@
       "description": "Tag(s) of the task",
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       }
     },
     "status": {
